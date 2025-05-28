@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 
-interface Prop {
+interface CenterProps {
   click: boolean;
 }
 
@@ -91,7 +91,7 @@ const bounce = keyframes`
     }
 `;
 
-const Center = styled.button<Prop>`
+const Center = styled.button<CenterProps>`
   position: absolute;
   top: ${(props) => (props.click ? "85%" : "50%")};
   left: ${(props) => (props.click ? "92%" : "50%")};
@@ -105,28 +105,13 @@ const Center = styled.button<Prop>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 1s ease;
-
   & > :first-child {
     animation: ${bounce} 2s infinite;
   }
 
   & > :last-child {
-    display: ${(props) => (props.click ? "none" : "inline-block")};
     padding-top: 1rem;
   }
-`;
-
-const LightDiv = styled.div<Prop>`
-  position: absolute;
-  top: 0;
-  background-color: #ffffff;
-  bottom: 0;
-  right: 50%;
-  width: ${(prop) => (prop.click ? "50%" : "0%")};
-  height: ${(prop) => (prop.click ? "100%" : "0%")};
-  z-index: 1;
-  transition: height 0.5s ease, width 1s ease 0.5s;
 `;
 
 const Main = () => {
@@ -134,7 +119,6 @@ const Main = () => {
   const handleClick = () => setClick(!click);
   return (
     <MainContainer>
-      <LightDiv click={click} />
       <Container>
         <PowerButton />
         <LogoComponent />

@@ -7,7 +7,7 @@ export interface MyTheme {
 }
 
 export const lightTheme = {
-  body: "#B59F8F",
+  body: "#FFFFFF",
   text: "#000000",
   fontFamily: "'Source Sans Pro', sans-serif",
   bodyRgba: "252, 246, 244",
@@ -16,7 +16,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   body: "#000000",
-  text: "#B59F8F",
+  text: "#FFFFFF",
   fontFamily: "'Source Sans Pro', sans-serif",
   bodyRgba: "0,0,0",
   textRgba: "252, 246, 244",

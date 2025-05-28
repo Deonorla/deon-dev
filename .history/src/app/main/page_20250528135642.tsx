@@ -3,15 +3,8 @@
 import PowerButton from "@/components/Button/PowerButton";
 import LogoComponent from "@/components/Minor/Logo";
 import Socials from "@/components/Minor/Socials";
-import { YinYang } from "@/components/Minor/SvgPack/AllSvgs";
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import styled, { keyframes } from "styled-components";
-
-interface Prop {
-  click: boolean;
-}
+import styled from "styled-components";
 
 const MainContainer = styled.div`
   background: ${(props) => props.theme.body};
@@ -57,7 +50,7 @@ const Work = styled(Link)`
   position: absolute;
   top: 46%;
   transform: rotate(-90deg) translate(-50%, -50%);
-  left: calc(1rem + 2vw);
+  left: 2rem;
   text-decoration: none;
   z-index: 1;
 `;
@@ -81,74 +74,14 @@ const Skills = styled(Link)`
   text-decoration: none;
   z-index: 1;
 `;
-// Bounce animation for the image
-const bounce = keyframes`
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-25px);
-    }
-`;
-
-const Center = styled.button<Prop>`
-  position: absolute;
-  top: ${(props) => (props.click ? "85%" : "50%")};
-  left: ${(props) => (props.click ? "92%" : "50%")};
-  transform: translate(-50%, -50%);
-  border: none;
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: all 1s ease;
-
-  & > :first-child {
-    animation: ${bounce} 2s infinite;
-  }
-
-  & > :last-child {
-    display: ${(props) => (props.click ? "none" : "inline-block")};
-    padding-top: 1rem;
-  }
-`;
-
-const LightDiv = styled.div<Prop>`
-  position: absolute;
-  top: 0;
-  background-color: #ffffff;
-  bottom: 0;
-  right: 50%;
-  width: ${(prop) => (prop.click ? "50%" : "0%")};
-  height: ${(prop) => (prop.click ? "100%" : "0%")};
-  z-index: 1;
-  transition: height 0.5s ease, width 1s ease 0.5s;
-`;
 
 const Main = () => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
   return (
     <MainContainer>
-      <LightDiv click={click} />
       <Container>
         <PowerButton />
         <LogoComponent />
         <Socials />
-        <Center click={click}>
-          <Image
-            onClick={() => handleClick()}
-            src="/images/head.png"
-            alt="Deon Oluleye"
-            width={click ? 100 : 300}
-            height={click ? 150 : 450}
-          />
-          <span>Click here</span>
-        </Center>
         <Contact target="_blank" href="mailto:deonoluleye@gmail.com">
           <h2>Say hi..</h2>
         </Contact>

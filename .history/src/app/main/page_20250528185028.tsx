@@ -124,11 +124,9 @@ const LightDiv = styled.div<Prop>`
   bottom: 0;
   right: 50%;
   width: ${(prop) => (prop.click ? "50%" : "0%")};
-  height: ${(prop) => (prop.click ? "100%" : "0%")};
+  height: ${(prop) => (prop.click ? "50%" : "0%")};
   z-index: 1;
-  transition: height 0.5s ease, width 1s ease 0.5s;
 `;
-
 const Main = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
