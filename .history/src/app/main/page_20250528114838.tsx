@@ -4,7 +4,7 @@ import PowerButton from "@/components/Button/PowerButton";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
-  background: ${(props) => props.theme.body};
+  background: ${(props) => props.theme.text};
   width: 100vw;
   height: 100vh;
   overflow: hidden;
