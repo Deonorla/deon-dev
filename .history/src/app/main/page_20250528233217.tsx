@@ -258,8 +258,12 @@ const Main = () => {
             initial="hidden"
             animate="show"
           >
-            <AnimatedLine variants={textVariants}>Oluleye</AnimatedLine>
-            <AnimatedLine variants={textVariants}>Emmanuel</AnimatedLine>
+            <AnimatedLine variants={textVariants}>
+              <p>Oluleye</p>
+            </AnimatedLine>
+            <AnimatedLine variants={textVariants}>
+              <p>Emmanuel</p>
+            </AnimatedLine>
           </TopContainer>
         </Wrapper>
         <Wrapper>
@@ -268,8 +272,12 @@ const Main = () => {
             initial="hidden"
             animate="show"
           >
-            <AnimatedLine variants={textVariants}>Frontend</AnimatedLine>
-            <AnimatedLine variants={textVariants}>Developer</AnimatedLine>
+            <AnimatedLine variants={textVariants}>
+              <p>Frontend</p>
+            </AnimatedLine>
+            <AnimatedLine variants={textVariants}>
+              <p>Developer</p>
+            </AnimatedLine>
           </BottomContainer>
         </Wrapper>
         <PowerButton />

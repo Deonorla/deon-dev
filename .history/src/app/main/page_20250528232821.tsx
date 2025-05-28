@@ -51,7 +51,7 @@ const Wrapper = styled.div`
 `;
 const MotionDiv = motion.div as typeof motion.div;
 const TopContainer = styled(MotionDiv)<MotionProps>`
-  position: absolute;
+  position: fixed;
   top: 10%;
   left: 0;
   display: flex;
@@ -76,7 +76,7 @@ const TopContainer = styled(MotionDiv)<MotionProps>`
 `;
 
 const BottomContainer = styled(MotionDiv)<MotionProps>`
-  position: absolute;
+  position: fixed;
   bottom: 10%;
   right: 0;
   display: flex;
@@ -258,18 +258,22 @@ const Main = () => {
             initial="hidden"
             animate="show"
           >
-            <AnimatedLine variants={textVariants}>Oluleye</AnimatedLine>
-            <AnimatedLine variants={textVariants}>Emmanuel</AnimatedLine>
+            <AnimatedLine variants={textVariants}>
+              <p>Oluleye</p>
+            </AnimatedLine>
+            <AnimatedLine variants={textVariants}>
+              <p>Emmanuel</p>
+            </AnimatedLine>
           </TopContainer>
         </Wrapper>
         <Wrapper>
-          <BottomContainer
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-          >
-            <AnimatedLine variants={textVariants}>Frontend</AnimatedLine>
-            <AnimatedLine variants={textVariants}>Developer</AnimatedLine>
+          <BottomContainer>
+            <AnimatedLine variants={textVariants}>
+              <p>Frontend</p>
+            </AnimatedLine>
+            <AnimatedLine variants={textVariants}>
+              <p>Developer</p>
+            </AnimatedLine>
           </BottomContainer>
         </Wrapper>
         <PowerButton />
