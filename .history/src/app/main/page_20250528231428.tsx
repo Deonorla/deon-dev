@@ -69,7 +69,6 @@ const TopContainer = styled.div`
 
   @media (max-width: 480px) {
     padding: 0px 20px;
-    top: 15%;
   }
 `;
 

@@ -48,14 +48,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const TopContainer = styled.div`
-  position: fixed;
-  top: 10%;
-  left: 0;
+const Container1 = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0px 100px;
-  /* height: 100%; */
+  height: 100%;
   justify-content: center;
   overflow: hidden;
 
@@ -67,28 +64,6 @@ const TopContainer = styled.div`
     padding: 0px 30px;
   }
 
-  @media (max-width: 480px) {
-    padding: 0px 20px;
-    top: 15%;
-  }
-`;
-
-const BottomContainer = styled.div`
-  position: fixed;
-  bottom: 10%;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 100px;
-  height: fit-content;
-  justify-content: center;
-  overflow: hidden;
-  @media (max-width: 1024px) {
-    padding: 0px 50px;
-  }
-  @media (max-width: 768px) {
-    padding: 0px 30px;
-  }
   @media (max-width: 480px) {
     padding: 0px 20px;
   }
@@ -231,24 +206,24 @@ const Main = () => {
       <LightDiv click={click} />
       <Container>
         <Wrapper>
-          <TopContainer>
+          <Container1>
             <Name>
               <p>Oluleye</p>
             </Name>
             <Name>
               <p>Emmanuel</p>
             </Name>
-          </TopContainer>
+          </Container1>
         </Wrapper>
         <Wrapper>
-          <BottomContainer>
+          <Container1>
             <Name>
               <p>Frontend</p>
             </Name>
             <Name>
               <p>Developer</p>
             </Name>
-          </BottomContainer>
+          </Container1>
         </Wrapper>
         <PowerButton />
         <LogoComponent theme={click ? "brown" : "light"} />

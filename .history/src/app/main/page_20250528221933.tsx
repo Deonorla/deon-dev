@@ -33,88 +33,6 @@ const MainContainer = styled.div`
 const Container = styled.div`
   padding: 2rem;
 `;
-const Wrapper = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  height: 50vh;
-  width: 100%;
-  margin-top: -80px;
-
-  @media (max-width: 1024px) {
-    height: auto;
-    flex-direction: column;
-    margin-top: -40px;
-  }
-`;
-
-const TopContainer = styled.div`
-  position: fixed;
-  top: 10%;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 100px;
-  /* height: 100%; */
-  justify-content: center;
-  overflow: hidden;
-
-  @media (max-width: 1024px) {
-    padding: 0px 50px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0px 30px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 0px 20px;
-    top: 15%;
-  }
-`;
-
-const BottomContainer = styled.div`
-  position: fixed;
-  bottom: 10%;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 100px;
-  height: fit-content;
-  justify-content: center;
-  overflow: hidden;
-  @media (max-width: 1024px) {
-    padding: 0px 50px;
-  }
-  @media (max-width: 768px) {
-    padding: 0px 30px;
-  }
-  @media (max-width: 480px) {
-    padding: 0px 20px;
-  }
-`;
-
-const Name = styled.div`
-  overflow: hidden;
-
-  p {
-    font-size: clamp(3rem, 10vw, 10rem); /* scales from 48px to 160px */
-    text-transform: capitalize;
-    letter-spacing: -0.3rem;
-    font-family: "Ogg", serif;
-    line-height: 0.9;
-    margin: 0;
-
-    @media (max-width: 768px) {
-      letter-spacing: -2px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: clamp(2rem, 12vw, 4rem);
-      letter-spacing: -1px;
-    }
-  }
-`;
 
 const Contact = styled(Link)`
   color: ${(props) => props.theme.text};
@@ -211,18 +129,6 @@ const LightDiv = styled.div<Prop>`
   transition: height 0.5s ease, width 1s ease 0.5s;
 `;
 
-const ImageWrapper = styled.div<{ click: boolean }>`
-  position: relative;
-  width: ${({ click }) => (click ? "100px" : "300px")};
-  height: ${({ click }) => (click ? "150px" : "450px")};
-  transition: all 0.3s ease;
-
-  @media (max-width: 768px) {
-    width: ${({ click }) => (click ? "80px" : "200px")};
-    height: ${({ click }) => (click ? "120px" : "300px")};
-  }
-`;
-
 const Main = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -230,40 +136,17 @@ const Main = () => {
     <MainContainer>
       <LightDiv click={click} />
       <Container>
-        <Wrapper>
-          <TopContainer>
-            <Name>
-              <p>Oluleye</p>
-            </Name>
-            <Name>
-              <p>Emmanuel</p>
-            </Name>
-          </TopContainer>
-        </Wrapper>
-        <Wrapper>
-          <BottomContainer>
-            <Name>
-              <p>Frontend</p>
-            </Name>
-            <Name>
-              <p>Developer</p>
-            </Name>
-          </BottomContainer>
-        </Wrapper>
         <PowerButton />
-        <LogoComponent theme={click ? "brown" : "light"} />
+        <LogoComponent />
         <Socials theme={click ? "brown" : "light"} />
         <Center click={click}>
-          <ImageWrapper click={click} onClick={handleClick}>
-            <Image
-              onClick={() => handleClick()}
-              src="/images/head.png"
-              alt="Deon Oluleye"
-              fill
-              style={{ objectFit: "cover", cursor: "pointer" }}
-              priority
-            />
-          </ImageWrapper>
+          <Image
+            onClick={() => handleClick()}
+            src="/images/head.png"
+            alt="Deon Oluleye"
+            width={click ? 100 : 400}
+            height={click ? 150 : 550}
+          />
           <span>Click here</span>
         </Center>
         <Contact target="_blank" href="mailto:deonoluleye@gmail.com">

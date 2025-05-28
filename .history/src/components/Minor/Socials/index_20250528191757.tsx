@@ -23,11 +23,10 @@ const Icons = styled.div`
   }
 `;
 
-const Line = styled.span<props>`
+const Line = styled.span`
   width: 2px;
   height: 8rem;
-  background-color: ${(props) =>
-    props.color === "brown" ? brownTheme.text : brownTheme.body};
+  background-color: ${(props) => props.theme.text};
 `;
 
 const Socials = ({ theme }: props) => {
@@ -77,7 +76,7 @@ const Socials = ({ theme }: props) => {
           />
         </Link>
       </div>
-      <Line color={theme} />
+      <Line />
     </Icons>
   );
 };

@@ -40,79 +40,39 @@ const Wrapper = styled.div`
   height: 50vh;
   width: 100%;
   margin-top: -80px;
-
-  @media (max-width: 1024px) {
-    height: auto;
-    flex-direction: column;
-    margin-top: -40px;
-  }
 `;
-
-const TopContainer = styled.div`
-  position: fixed;
-  top: 10%;
-  left: 0;
+const Container1 = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0px 100px;
-  /* height: 100%; */
+  height: 100%;
   justify-content: center;
   overflow: hidden;
-
-  @media (max-width: 1024px) {
-    padding: 0px 50px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0px 30px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 0px 20px;
-    top: 15%;
-  }
-`;
-
-const BottomContainer = styled.div`
-  position: fixed;
-  bottom: 10%;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 0px 100px;
-  height: fit-content;
-  justify-content: center;
-  overflow: hidden;
-  @media (max-width: 1024px) {
-    padding: 0px 50px;
-  }
-  @media (max-width: 768px) {
-    padding: 0px 30px;
-  }
-  @media (max-width: 480px) {
-    padding: 0px 20px;
-  }
 `;
 
 const Name = styled.div`
   overflow: hidden;
-
   p {
-    font-size: clamp(3rem, 10vw, 10rem); /* scales from 48px to 160px */
+    font-size: 180px;
     text-transform: capitalize;
-    letter-spacing: -0.3rem;
-    font-family: "Ogg", serif;
-    line-height: 0.9;
-    margin: 0;
+    letter-spacing: -10px;
+    font-family: "Ogg";
+    overflow: hidden;
+    height: 100%;
+    line-height: 90%;
+  }
+`;
 
-    @media (max-width: 768px) {
-      letter-spacing: -2px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: clamp(2rem, 12vw, 4rem);
-      letter-spacing: -1px;
-    }
+const Role = styled.div`
+  overflow: hidden;
+  p {
+    font-size: 180px;
+    text-transform: capitalize;
+    letter-spacing: -10px;
+    font-family: "Ogg";
+    overflow: hidden;
+    height: 100%;
+    line-height: 90%;
   }
 `;
 
@@ -231,24 +191,24 @@ const Main = () => {
       <LightDiv click={click} />
       <Container>
         <Wrapper>
-          <TopContainer>
+          <Container1>
             <Name>
               <p>Oluleye</p>
             </Name>
             <Name>
               <p>Emmanuel</p>
             </Name>
-          </TopContainer>
+          </Container1>
         </Wrapper>
         <Wrapper>
-          <BottomContainer>
-            <Name>
+          <Container1>
+            <Role>
               <p>Frontend</p>
-            </Name>
-            <Name>
+            </Role>
+            <Role>
               <p>Developer</p>
-            </Name>
-          </BottomContainer>
+            </Role>
+          </Container1>
         </Wrapper>
         <PowerButton />
         <LogoComponent theme={click ? "brown" : "light"} />

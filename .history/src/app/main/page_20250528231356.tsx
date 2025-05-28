@@ -49,9 +49,6 @@ const Wrapper = styled.div`
 `;
 
 const TopContainer = styled.div`
-  position: fixed;
-  top: 10%;
-  left: 0;
   display: flex;
   flex-direction: column;
   padding: 0px 100px;
@@ -69,7 +66,6 @@ const TopContainer = styled.div`
 
   @media (max-width: 480px) {
     padding: 0px 20px;
-    top: 15%;
   }
 `;
 

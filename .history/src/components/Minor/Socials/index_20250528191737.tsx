@@ -23,11 +23,10 @@ const Icons = styled.div`
   }
 `;
 
-const Line = styled.span<props>`
+const Line = styled.span`
   width: 2px;
   height: 8rem;
-  background-color: ${(props) =>
-    props.color === "brown" ? brownTheme.text : brownTheme.body};
+  background-color: ${(props) => props.theme.text};
 `;
 
 const Socials = ({ theme }: props) => {
@@ -42,7 +41,7 @@ const Socials = ({ theme }: props) => {
           <Github
             width={30}
             height={25}
-            fill={theme === "brown" ? brownTheme.text : brownTheme.body}
+            fill={theme === "dark" ? brownTheme.text : brownTheme.body}
           />
         </Link>
       </div>
@@ -55,7 +54,7 @@ const Socials = ({ theme }: props) => {
           <Twitter
             width={30}
             height={25}
-            fill={theme === "brown" ? brownTheme.text : brownTheme.body}
+            fill={theme === "dark" ? brownTheme.text : brownTheme.body}
           />
         </Link>
       </div>
@@ -64,7 +63,7 @@ const Socials = ({ theme }: props) => {
           <Facebook
             width={30}
             height={25}
-            fill={theme === "brown" ? brownTheme.text : brownTheme.body}
+            fill={theme === "dark" ? brownTheme.text : brownTheme.body}
           />
         </Link>
       </div>
@@ -73,11 +72,11 @@ const Socials = ({ theme }: props) => {
           <YouTube
             width={30}
             height={25}
-            fill={theme === "brown" ? brownTheme.text : brownTheme.body}
+            fill={theme === "dark" ? brownTheme.text : brownTheme.body}
           />
         </Link>
       </div>
-      <Line color={theme} />
+      <Line />
     </Icons>
   );
 };
