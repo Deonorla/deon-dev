@@ -20,7 +20,13 @@ const Power = styled.button`
 const PowerButton = () => {
   return (
     <Power>
-      <PowerBtn width={30} height={30} fill="currentColor" />
+      {/* <Image
+        src={"/svg/power-off-solid.svg"}
+        width={25}
+        height={30}
+        alt="Power Button"
+      /> */}
+      <PowerBtn width={30} height={30} />
     </Power>
   );
 };
