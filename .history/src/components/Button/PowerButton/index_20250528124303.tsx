@@ -1,5 +1,5 @@
 "use client";
-import { PowerBtn } from "@/components/Minor/SvgPack/AllSvgs";
+import { PowerBtn } from "@/components/SvgPack/AllSvgs";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";

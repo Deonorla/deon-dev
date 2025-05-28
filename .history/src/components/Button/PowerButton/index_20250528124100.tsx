@@ -1,5 +1,5 @@
 "use client";
-import { PowerBtn } from "@/components/Minor/SvgPack/AllSvgs";
+import { PowerBtn } from "@/components/SvgPack/AllSvgs";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
@@ -28,17 +28,12 @@ const Power = styled.button`
     background-color: rgba(0, 255, 0, 0.4);
     box-shadow: 0 0 8px 6px rgba(0, 255, 0, 0.2);
   }
-
-  & > *:first-child {
-    text-decoration: none;
-    color: inherit;
-  }
 `;
 
 const PowerButton = () => {
   return (
     <Power>
-      <Link href="/">
+      <Link href="">
         <PowerBtn width={30} height={30} fill="currentColor" />
       </Link>
     </Power>

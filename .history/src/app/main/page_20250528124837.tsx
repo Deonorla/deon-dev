@@ -1,8 +1,7 @@
 "use client";
 
 import PowerButton from "@/components/Button/PowerButton";
-import LogoComponent from "@/components/Minor/Logo";
-import Socials from "@/components/Minor/Socials";
+import LogoComponent from "@/components/Logo";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
@@ -32,7 +31,6 @@ const Main = () => {
       <Container>
         <PowerButton />
         <LogoComponent />
-        <Socials />
       </Container>
     </MainContainer>
   );
