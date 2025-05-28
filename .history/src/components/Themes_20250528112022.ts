@@ -13,3 +13,5 @@ export const darkTheme = {
   textRgba: "252, 246, 244",
   bodyRgba: "0,0,0",
 };
+
+export type MyTheme = typeof lightTheme | typeof darkTheme;

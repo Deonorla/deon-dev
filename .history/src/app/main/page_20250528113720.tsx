@@ -3,7 +3,7 @@
 import styled from "styled-components";
 
 const MainContainer = styled.div`
-  background: ${(props) => props.theme.text};
+  background: ${(props) => props.theme.body};
   width: 100vw;
   height: 100vh;
 `;
