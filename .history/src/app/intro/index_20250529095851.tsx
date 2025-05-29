@@ -89,11 +89,7 @@ const Intro = ({ $click }: Prop) => {
         </Text>
       </SubBox>
       <SubBox>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2 }}
-        >
+        <div>
           <StyledImage
             className="pic"
             width={300}
@@ -102,7 +98,7 @@ const Intro = ({ $click }: Prop) => {
             alt="Deon"
             priority
           />
-        </motion.div>
+        </div>
       </SubBox>
     </Box>
   );

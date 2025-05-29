@@ -1,13 +1,12 @@
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
 import { styled } from "styled-components";
 
 interface Prop {
   $click: boolean;
 }
 
-const Box = styled(motion.div)`
+const Box = styled.div`
   position: absolute;
   left: 50%;
   top: 50%;
@@ -74,11 +73,7 @@ const Text = styled.div`
 
 const Intro = ({ $click }: Prop) => {
   return (
-    <Box
-      initial={{ height: 0 }}
-      animate={{ height: "55vh" }}
-      transition={{ type: "spring", duration: 2, delay: 1 }}
-    >
+    <Box>
       <SubBox>
         <Text>
           <h1>Hi,</h1>
@@ -89,11 +84,7 @@ const Intro = ({ $click }: Prop) => {
         </Text>
       </SubBox>
       <SubBox>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2 }}
-        >
+        <div>
           <StyledImage
             className="pic"
             width={300}
@@ -102,7 +93,7 @@ const Intro = ({ $click }: Prop) => {
             alt="Deon"
             priority
           />
-        </motion.div>
+        </div>
       </SubBox>
     </Box>
   );

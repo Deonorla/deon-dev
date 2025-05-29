@@ -2,8 +2,6 @@
 import LogoComponent from "@/components/Minor/Logo";
 import Socials from "@/components/Minor/Socials";
 import styled from "styled-components";
-import { Blogs } from "../../data/BlogData";
-import BlogComponent from "@/components/BlogComponent";
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -26,7 +24,7 @@ const Center = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, minmax(calc(10rem + 15vw), 1fr));
+  grid-template-columns: repeat(2, minmax(cal(10rem + 15vw), 1fr));
   grid-gap: calc(1rem + 2vw);
 `;
 
@@ -38,9 +36,13 @@ const Blog = () => {
         <Socials theme={"brown"} />
         <Center>
           <Grid>
-            {Blogs.map((blog) => (
-              <BlogComponent key={blog.id} blog={blog} />
-            ))}
+            <h1>Blog</h1>
+            <h1>Blog</h1>
+            <h1>Blog</h1>
+            <h1>Blog</h1>
+            <h1>Blog</h1>
+            <h1>Blog</h1>
+            <h1>Blog</h1>
           </Grid>
         </Center>
       </Container>

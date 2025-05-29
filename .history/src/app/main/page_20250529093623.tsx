@@ -76,11 +76,11 @@ const TopContainer = styled(MotionDiv)<MotionProps>`
   }
 `;
 
-const BottomContainer = styled(MotionDiv)<MotionProps & Prop>`
+const BottomContainer = styled(MotionDiv)<MotionProps>`
   position: absolute;
   bottom: 10%;
   right: 0;
-  display: ${(prop) => (prop.$click ? "none" : "flex")};
+  display: flex;
   flex-direction: column;
   padding: 0px 100px;
   height: fit-content;
@@ -273,7 +273,6 @@ const Main = () => {
         </Wrapper>
         <Wrapper>
           <BottomContainer
-            $click={click}
             variants={containerVariants}
             initial="hidden"
             animate="show"
@@ -299,30 +298,20 @@ const Main = () => {
           <span>Click here</span>
         </Center>
         <Contact target="_blank" href="mailto:deonoluleye@gmail.com">
-          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-            Contact me
-          </motion.h2>
+          <h2>Say hi..</h2>
         </Contact>
         <Blog href="/blog">
-          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-            Blog
-          </motion.h2>
+          <h2>Blog</h2>
         </Blog>
         <Work href="/work" $click={click}>
-          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-            Work
-          </motion.h2>
+          <h2>Work</h2>
         </Work>
         <BottomBar>
           <About href="/about" $click={click}>
-            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-              About
-            </motion.h2>
+            <h2>About</h2>
           </About>
           <Skills href="/skills">
-            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-              My Skills
-            </motion.h2>
+            <h2>My Skills</h2>
           </Skills>
         </BottomBar>
       </Container>

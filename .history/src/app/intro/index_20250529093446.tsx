@@ -1,19 +1,18 @@
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
 import { styled } from "styled-components";
 
 interface Prop {
   $click: boolean;
 }
 
-const Box = styled(motion.div)`
+const Box = styled.div`
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 65vw;
-  height: 55vh;
+  width: 55vw;
+  height: 40vw;
   display: flex;
 
   background: linear-gradient(
@@ -67,33 +66,25 @@ const Text = styled.div`
 
   & > :last-child {
     color: ${(props) => `rgba(${props.theme.text},0.6)`};
-    font-size: calc(0.3em + 1.5vw);
+    font-size: calc(0.5em + 1.5vw);
     font-weight: 300;
   }
 `;
 
 const Intro = ({ $click }: Prop) => {
   return (
-    <Box
-      initial={{ height: 0 }}
-      animate={{ height: "55vh" }}
-      transition={{ type: "spring", duration: 2, delay: 1 }}
-    >
+    <Box>
       <SubBox>
         <Text>
           <h1>Hi,</h1>
-          <h3>I&apos;m Emmanuel.</h3>
+          <h3>I&apos;m Emmanuel</h3>
           <h6>
             I build scalable, responsive and high performance web applications.
           </h6>
         </Text>
       </SubBox>
       <SubBox>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2 }}
-        >
+        <div>
           <StyledImage
             className="pic"
             width={300}
@@ -102,7 +93,7 @@ const Intro = ({ $click }: Prop) => {
             alt="Deon"
             priority
           />
-        </motion.div>
+        </div>
       </SubBox>
     </Box>
   );

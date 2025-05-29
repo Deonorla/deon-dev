@@ -39,7 +39,7 @@ const Blog = () => {
         <Center>
           <Grid>
             {Blogs.map((blog) => (
-              <BlogComponent key={blog.id} blog={blog} />
+              <BlogComponent key={blog.id} />
             ))}
           </Grid>
         </Center>
