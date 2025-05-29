@@ -1,8 +1,7 @@
-"use client";
-
+import React from "react";
 import styled from "styled-components";
 import { brownTheme } from "../theme/Themes";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 interface prop {
   theme: string;
 }
@@ -12,7 +11,7 @@ const Logo = styled.h1`
   color: ${(prop) =>
     prop.color === "brown" ? brownTheme.text : brownTheme.body};
   font-family: "pacifico", cursive;
-  cursor: pointer;
+
   position: fixed;
   left: 2rem;
   top: 2rem;

@@ -9,19 +9,22 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
+import ReactIcon from "@/assets/skills/react.png";
+import TypeScriptIcon from "@/assets/skills/typescript.png";
+import FlutterIcon from "@/assets/skills/flutter.png";
+import HtmlIcon from "@/assets/skills/html.png";
+import CssIcon from "@/assets/skills/css.png";
+import ReduxIcon from "@/assets/skills/redux.png";
+import TailwindIcon from "@/assets/skills/tailwind.png";
+
 const skillIcons = [
-  { src: "/images/react.png", name: "React", top: "5%", left: "10%" },
-  {
-    src: "/images/typescript.png",
-    name: "TypeScript",
-    top: "10%",
-    right: "12%",
-  },
-  { src: "/images/flutter.png", name: "Flutter", bottom: "10%", left: "8%" },
-  { src: "/images/html.png", name: "HTML", bottom: "15%", right: "15%" },
-  { src: "/images/javascript.png", name: "Javascript", top: "30%", left: "2%" },
-  // { src: "/images/redux.png", name: "Redux", bottom: "5%", right: "5%" },
-  { src: "/images/tailwind.png", name: "Tailwind", top: "5%", right: "40%" },
+  { src: ReactIcon, name: "React", top: "5%", left: "10%" },
+  { src: TypeScriptIcon, name: "TypeScript", top: "10%", right: "12%" },
+  { src: FlutterIcon, name: "Flutter", bottom: "10%", left: "8%" },
+  { src: HtmlIcon, name: "HTML", bottom: "15%", right: "15%" },
+  { src: CssIcon, name: "CSS", top: "30%", left: "2%" },
+  { src: ReduxIcon, name: "Redux", bottom: "5%", right: "5%" },
+  { src: TailwindIcon, name: "Tailwind", top: "5%", right: "40%" },
 ];
 
 const Box = styled.div`
@@ -105,7 +108,7 @@ const OrbitIcon = styled(motion.div)<{
 
 const Tooltip = styled.div`
   position: absolute;
-  background: #b59f8f;
+  background: #333;
   color: #fff;
   padding: 0.3rem 0.6rem;
   border-radius: 5px;
@@ -160,10 +163,7 @@ const Skills = () => {
             bottom={icon.bottom}
             left={icon.left}
             right={icon.right}
-            initial={{ opacity: 0, scale: 0.8 }}
             animate={{
-              opacity: 1,
-              scale: 1,
               y: [0, -10, 0],
               rotate: [0, 10, -10, 0],
             }}
@@ -173,13 +173,6 @@ const Skills = () => {
               repeat: Infinity,
               repeatType: "loop",
               ease: "easeInOut",
-            }}
-            whileHover={{
-              rotate: [0, 5, -5, 0],
-              transition: { duration: 0.4 },
-            }}
-            whileTap={{
-              scale: 0.9,
             }}
             onMouseEnter={() => setHoveredIndex(i)}
             onMouseLeave={() => setHoveredIndex(null)}

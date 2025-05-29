@@ -34,10 +34,10 @@ const Grid = styled.div`
 const Blog = () => {
   return (
     <MainContainer>
+      <Anchor />
       <Container>
         <LogoComponent theme={"brown"} />
         <Socials theme={"brown"} />
-        {/* <Anchor /> */}
         <Center>
           <Grid>
             {Blogs.map((blog) => (

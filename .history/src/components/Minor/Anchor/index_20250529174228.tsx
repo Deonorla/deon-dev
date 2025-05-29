@@ -21,11 +21,6 @@ const Slider = styled.div`
   }
 `;
 
-const PreDisplay = styled.div`
-  position: absolute;
-  top: 0;
-`;
-
 const Anchor = () => {
   const ref = useRef(null);
   const hiddenRef = useRef(null);
@@ -41,16 +36,7 @@ const Anchor = () => {
       if (ref.current) {
         (
           ref.current as HTMLDivElement
-        ).style.transform = `translateY(${-diffp}%)`;
-      }
-      if (window.pageYOffset > 5) {
-        if (hiddenRef.current) {
-          (hiddenRef.current as HTMLDivElement).style.display = "none";
-        }
-      } else {
-        if (hiddenRef.current) {
-          (hiddenRef.current as HTMLDivElement).style.display = "block";
-        }
+        ).style.transform = `translateY(-${diffp}%)`;
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -61,7 +47,6 @@ const Anchor = () => {
 
   return (
     <Container>
-      <PreDisplay ref={hiddenRef} className="hidden" />
       <Slider ref={ref}>
         {[...Array(25)].map((x, id) => (
           <Link

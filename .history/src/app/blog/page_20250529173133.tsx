@@ -37,7 +37,7 @@ const Blog = () => {
       <Container>
         <LogoComponent theme={"brown"} />
         <Socials theme={"brown"} />
-        {/* <Anchor /> */}
+        <Anchor />
         <Center>
           <Grid>
             {Blogs.map((blog) => (

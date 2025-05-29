@@ -12,7 +12,7 @@ const Logo = styled.h1`
   color: ${(prop) =>
     prop.color === "brown" ? brownTheme.text : brownTheme.body};
   font-family: "pacifico", cursive;
-  cursor: pointer;
+
   position: fixed;
   left: 2rem;
   top: 2rem;

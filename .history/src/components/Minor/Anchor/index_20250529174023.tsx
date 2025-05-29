@@ -14,16 +14,11 @@ const Slider = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transform: translateY(-50%);
+  transform: translateY(-100%);
 
   .chain {
     transform: rotate(135deg);
   }
-`;
-
-const PreDisplay = styled.div`
-  position: absolute;
-  top: 0;
 `;
 
 const Anchor = () => {
@@ -32,26 +27,13 @@ const Anchor = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.pageYOffset;
-      const windowSize = window.innerHeight;
-      const bodyHeight = document.body.offsetHeight;
+      let scrollPosition = window.pageYOffset;
+      let windowSize = window.innerHeight;
+      let bodyHeight = document.body.offsetHeight;
 
-      const diff = Math.max(bodyHeight - (scrollPosition + windowSize));
-      const diffp = (diff * 100) / (bodyHeight - windowSize);
-      if (ref.current) {
-        (
-          ref.current as HTMLDivElement
-        ).style.transform = `translateY(${-diffp}%)`;
-      }
-      if (window.pageYOffset > 5) {
-        if (hiddenRef.current) {
-          (hiddenRef.current as HTMLDivElement).style.display = "none";
-        }
-      } else {
-        if (hiddenRef.current) {
-          (hiddenRef.current as HTMLDivElement).style.display = "block";
-        }
-      }
+      let diff = Math.max(bodyHeight - (scrollPosition + windowSize));
+      let diffp = (diff * 100) / (bodyHeight - windowSize);
+      ref.current.style.transform = `translateY(-${diffp}%)`;
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -61,7 +43,6 @@ const Anchor = () => {
 
   return (
     <Container>
-      <PreDisplay ref={hiddenRef} className="hidden" />
       <Slider ref={ref}>
         {[...Array(25)].map((x, id) => (
           <Link

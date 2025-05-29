@@ -160,10 +160,7 @@ const Skills = () => {
             bottom={icon.bottom}
             left={icon.left}
             right={icon.right}
-            initial={{ opacity: 0, scale: 0.8 }}
             animate={{
-              opacity: 1,
-              scale: 1,
               y: [0, -10, 0],
               rotate: [0, 10, -10, 0],
             }}
@@ -173,13 +170,6 @@ const Skills = () => {
               repeat: Infinity,
               repeatType: "loop",
               ease: "easeInOut",
-            }}
-            whileHover={{
-              rotate: [0, 5, -5, 0],
-              transition: { duration: 0.4 },
-            }}
-            whileTap={{
-              scale: 0.9,
             }}
             onMouseEnter={() => setHoveredIndex(i)}
             onMouseLeave={() => setHoveredIndex(null)}

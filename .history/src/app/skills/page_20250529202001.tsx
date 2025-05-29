@@ -5,23 +5,18 @@ import { Developer } from "@/components/Minor/SvgPack/AllSvgs";
 import LogoComponent from "@/components/Minor/Logo";
 import Socials from "@/components/Minor/Socials";
 import ParticleComponent from "@/components/ParticleComponent";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const skillIcons = [
-  { src: "/images/react.png", name: "React", top: "5%", left: "10%" },
-  {
-    src: "/images/typescript.png",
-    name: "TypeScript",
-    top: "10%",
-    right: "12%",
-  },
-  { src: "/images/flutter.png", name: "Flutter", bottom: "10%", left: "8%" },
-  { src: "/images/html.png", name: "HTML", bottom: "15%", right: "15%" },
-  { src: "/images/javascript.png", name: "Javascript", top: "30%", left: "2%" },
-  // { src: "/images/redux.png", name: "Redux", bottom: "5%", right: "5%" },
-  { src: "/images/tailwind.png", name: "Tailwind", top: "5%", right: "40%" },
+  { src: "/images/react.png", name: "React" },
+  { src: "/images/typescript.png", name: "TypeScript" },
+  { src: "/images/flutter.png", name: "Flutter" },
+  { src: "/images/html.png", name: "HTML" },
+  { src: "/images/css.png", name: "CSS" },
+  { src: "/images/redux.png", name: "Redux" },
+  { src: "/images/tailwind.png", name: "Tailwind" },
 ];
 
 const Box = styled.div`
@@ -40,8 +35,8 @@ const Main = styled.div`
   color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.body};
   padding: 2rem;
-  width: 90%;
-  max-width: 600px;
+  width: 30vw;
+  height: auto;
   z-index: 3;
   line-height: 1.5;
   font-family: "Ubuntu Mono", monospace;
@@ -56,7 +51,6 @@ const Title = styled.h2`
   justify-content: center;
   align-items: center;
   font-size: calc(1rem + 1vw);
-
   & > *:first-child {
     margin-right: 1rem;
   }
@@ -68,33 +62,28 @@ const Description = styled.div`
   padding: 0.5rem 0;
 
   strong {
-    display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     text-transform: uppercase;
+  }
+
+  ul,
+  p {
+    margin-left: 2rem;
   }
 `;
 
-const OrbitIcon = styled(motion.div)<{
-  top?: string;
-  bottom?: string;
-  left?: string;
-  right?: string;
-}>`
+const OrbitIcon = styled(motion.div)<{ x: number; y: number }>`
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+    translate(${(props) => props.x}px, ${(props) => props.y}px);
   width: 60px;
   height: 60px;
-  ${(props) => props.top && `top: ${props.top};`}
-  ${(props) => props.bottom && `bottom: ${props.bottom};`}
-  ${(props) => props.left && `left: ${props.left};`}
-  ${(props) => props.right && `right: ${props.right};`}
-  z-index: 4;
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
     border-radius: 12px;
-    pointer-events: auto;
+    object-fit: contain;
   }
 
   &:hover .tooltip {
@@ -105,7 +94,7 @@ const OrbitIcon = styled(motion.div)<{
 
 const Tooltip = styled.div`
   position: absolute;
-  background: #b59f8f;
+  background: #333;
   color: #fff;
   padding: 0.3rem 0.6rem;
   border-radius: 5px;
@@ -120,7 +109,7 @@ const Tooltip = styled.div`
 `;
 
 const Skills = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [pausedIndex, setPausedIndex] = useState<number | null>(null);
 
   return (
     <ThemeProvider theme={brownTheme}>
@@ -141,53 +130,38 @@ const Skills = () => {
             experience across devices.
           </Description>
           <Description>
-            <strong>Skills</strong>
-            <p>
-              React, Next.js, Flutter, TypeScript, HTML, CSS, Redux, Tailwind,
-              etc.
-            </p>
-          </Description>
-          <Description>
             <strong>Tools</strong>
             <p>VS Code, GitHub, Figma, etc</p>
           </Description>
         </Main>
 
-        {skillIcons.map((icon, i) => (
-          <OrbitIcon
-            key={icon.name}
-            top={icon.top}
-            bottom={icon.bottom}
-            left={icon.left}
-            right={icon.right}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: [0, -10, 0],
-              rotate: [0, 10, -10, 0],
-            }}
-            transition={{
-              delay: i * 0.2,
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-            whileHover={{
-              rotate: [0, 5, -5, 0],
-              transition: { duration: 0.4 },
-            }}
-            whileTap={{
-              scale: 0.9,
-            }}
-            onMouseEnter={() => setHoveredIndex(i)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <Tooltip className="tooltip">{icon.name}</Tooltip>
-            <Image src={icon.src} alt={icon.name} width={60} height={60} />
-          </OrbitIcon>
-        ))}
+        {skillIcons.map((icon, i) => {
+          const angle = (360 / skillIcons.length) * i;
+          const radius = 180 + i * 5; // Spiral effect
+          const x = Math.cos((angle * Math.PI) / 180) * radius;
+          const y = Math.sin((angle * Math.PI) / 180) * radius;
+
+          return (
+            <OrbitIcon
+              key={icon.name}
+              x={x}
+              y={y}
+              animate={{
+                rotate: pausedIndex === i ? 0 : [0, 360],
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 10,
+                ease: "linear",
+              }}
+              onMouseEnter={() => setPausedIndex(i)}
+              onMouseLeave={() => setPausedIndex(null)}
+            >
+              <Tooltip className="tooltip">{icon.name}</Tooltip>
+              <Image src={icon.src} alt={icon.name} width={60} height={60} />
+            </OrbitIcon>
+          );
+        })}
       </Box>
     </ThemeProvider>
   );

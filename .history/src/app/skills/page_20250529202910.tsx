@@ -7,21 +7,16 @@ import Socials from "@/components/Minor/Socials";
 import ParticleComponent from "@/components/ParticleComponent";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const skillIcons = [
-  { src: "/images/react.png", name: "React", top: "5%", left: "10%" },
-  {
-    src: "/images/typescript.png",
-    name: "TypeScript",
-    top: "10%",
-    right: "12%",
-  },
-  { src: "/images/flutter.png", name: "Flutter", bottom: "10%", left: "8%" },
-  { src: "/images/html.png", name: "HTML", bottom: "15%", right: "15%" },
-  { src: "/images/javascript.png", name: "Javascript", top: "30%", left: "2%" },
-  // { src: "/images/redux.png", name: "Redux", bottom: "5%", right: "5%" },
-  { src: "/images/tailwind.png", name: "Tailwind", top: "5%", right: "40%" },
+  { src: "/images/react.png", name: "React" },
+  { src: "/images/typescript.png", name: "TypeScript" },
+  { src: "/images/flutter.png", name: "Flutter" },
+  { src: "/images/html.png", name: "HTML" },
+  { src: "/images/css.png", name: "CSS" },
+  { src: "/images/redux.png", name: "Redux" },
+  { src: "/images/tailwind.png", name: "Tailwind" },
 ];
 
 const Box = styled.div`
@@ -40,9 +35,9 @@ const Main = styled.div`
   color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.body};
   padding: 2rem;
-  width: 90%;
-  max-width: 600px;
-  z-index: 3;
+  width: 30vw;
+  height: auto;
+  z-index: 2;
   line-height: 1.5;
   font-family: "Ubuntu Mono", monospace;
   display: flex;
@@ -56,7 +51,6 @@ const Title = styled.h2`
   justify-content: center;
   align-items: center;
   font-size: calc(1rem + 1vw);
-
   & > *:first-child {
     margin-right: 1rem;
   }
@@ -68,32 +62,27 @@ const Description = styled.div`
   padding: 0.5rem 0;
 
   strong {
-    display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     text-transform: uppercase;
+  }
+
+  ul,
+  p {
+    margin-left: 2rem;
   }
 `;
 
-const OrbitIcon = styled(motion.div)<{
-  top?: string;
-  bottom?: string;
-  left?: string;
-  right?: string;
-}>`
+const OrbitIcon = styled(motion.div)`
   position: absolute;
   width: 60px;
   height: 60px;
-  ${(props) => props.top && `top: ${props.top};`}
-  ${(props) => props.bottom && `bottom: ${props.bottom};`}
-  ${(props) => props.left && `left: ${props.left};`}
-  ${(props) => props.right && `right: ${props.right};`}
-  z-index: 4;
+  z-index: 5;
 
   img {
+    border-radius: 12px;
+    object-fit: contain;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    border-radius: 12px;
     pointer-events: auto;
   }
 
@@ -105,7 +94,7 @@ const OrbitIcon = styled(motion.div)<{
 
 const Tooltip = styled.div`
   position: absolute;
-  background: #b59f8f;
+  background: #333;
   color: #fff;
   padding: 0.3rem 0.6rem;
   border-radius: 5px;
@@ -121,6 +110,14 @@ const Tooltip = styled.div`
 
 const Skills = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime((prev) => prev + 0.02);
+    }, 16); // ~60fps
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <ThemeProvider theme={brownTheme}>
@@ -128,7 +125,6 @@ const Skills = () => {
         <LogoComponent theme={"brown"} />
         <Socials theme={"brown"} />
         <ParticleComponent />
-
         <Main>
           <Title>
             <Developer width={40} height={40} fill="currentColor" />
@@ -141,53 +137,33 @@ const Skills = () => {
             experience across devices.
           </Description>
           <Description>
-            <strong>Skills</strong>
-            <p>
-              React, Next.js, Flutter, TypeScript, HTML, CSS, Redux, Tailwind,
-              etc.
-            </p>
-          </Description>
-          <Description>
             <strong>Tools</strong>
             <p>VS Code, GitHub, Figma, etc</p>
           </Description>
         </Main>
 
-        {skillIcons.map((icon, i) => (
-          <OrbitIcon
-            key={icon.name}
-            top={icon.top}
-            bottom={icon.bottom}
-            left={icon.left}
-            right={icon.right}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: [0, -10, 0],
-              rotate: [0, 10, -10, 0],
-            }}
-            transition={{
-              delay: i * 0.2,
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-            whileHover={{
-              rotate: [0, 5, -5, 0],
-              transition: { duration: 0.4 },
-            }}
-            whileTap={{
-              scale: 0.9,
-            }}
-            onMouseEnter={() => setHoveredIndex(i)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <Tooltip className="tooltip">{icon.name}</Tooltip>
-            <Image src={icon.src} alt={icon.name} width={60} height={60} />
-          </OrbitIcon>
-        ))}
+        {skillIcons.map((icon, i) => {
+          const angle = time + i * (Math.PI / 4);
+          const radius = 180 + i * 5; // spiral effect
+          const x = Math.cos(angle) * radius;
+          const y = Math.sin(angle) * radius;
+
+          return (
+            <OrbitIcon
+              key={icon.name}
+              style={{
+                left: "50%",
+                top: "50%",
+                transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
+              }}
+              onMouseEnter={() => setHoveredIndex(i)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <Tooltip className="tooltip">{icon.name}</Tooltip>
+              <Image src={icon.src} alt={icon.name} width={60} height={60} />
+            </OrbitIcon>
+          );
+        })}
       </Box>
     </ThemeProvider>
   );
