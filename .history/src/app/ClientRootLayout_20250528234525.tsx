@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./globalStyles";
 import "../../node_modules/normalize.css";
 import { lightTheme } from "@/components/Minor/theme/Themes";
-import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
+import StyledComponentsRegistry from "@/lib/registry";
 
 export default function ClientRootLayout({
   children,

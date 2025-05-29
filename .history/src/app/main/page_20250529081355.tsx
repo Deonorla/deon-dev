@@ -97,14 +97,14 @@ const BottomContainer = styled(MotionDiv)<MotionProps>`
 `;
 
 const AnimatedLine = styled(motion.p)`
-  font-size: clamp(2.5rem, 10vw, 10rem);
+  font-size: clamp(2rem, 10vw, 10rem);
   font-family: "Ogg", serif;
   text-transform: capitalize;
   letter-spacing: -0.3rem;
   line-height: 0.9;
   margin: 0;
-  @media (max-width: 1800px) {
-    font-size: clamp(2rem, 10vw, 7.5rem);
+  @media (min-width: 1800px) {
+    font-size: clamp(2.5rem, 10vw, 10rem);
   }
   @media (max-width: 768px) {
     letter-spacing: -2px;

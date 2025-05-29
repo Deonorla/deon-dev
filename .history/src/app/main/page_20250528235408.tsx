@@ -103,9 +103,7 @@ const AnimatedLine = styled(motion.p)`
   letter-spacing: -0.3rem;
   line-height: 0.9;
   margin: 0;
-  @media (max-width: 1800px) {
-    font-size: clamp(2rem, 10vw, 7.5rem);
-  }
+
   @media (max-width: 768px) {
     letter-spacing: -2px;
   }
@@ -210,15 +208,15 @@ const LightDiv = styled.div<Prop>`
   transition: height 0.5s ease, width 1s ease 0.5s;
 `;
 
-const ImageWrapper = styled.div<{ $click: boolean }>`
+const ImageWrapper = styled.div<{ click: boolean }>`
   position: relative;
-  width: ${({ $click }) => ($click ? "100px" : "300px")};
-  height: ${({ $click }) => ($click ? "150px" : "450px")};
+  width: ${({ click }) => (click ? "100px" : "300px")};
+  height: ${({ click }) => (click ? "150px" : "450px")};
   transition: all 0.3s ease;
 
   @media (max-width: 768px) {
-    width: ${({ $click }) => ($click ? "80px" : "200px")};
-    height: ${({ $click }) => ($click ? "120px" : "300px")};
+    width: ${({ click }) => (click ? "80px" : "200px")};
+    height: ${({ click }) => (click ? "120px" : "300px")};
   }
 `;
 
@@ -277,8 +275,8 @@ const Main = () => {
         <PowerButton />
         <LogoComponent theme={click ? "brown" : "light"} />
         <Socials theme={click ? "brown" : "light"} />
-        <Center $click={click} onClick={handleClick}>
-          <ImageWrapper $click={click}>
+        <Center $click={click}>
+          <ImageWrapper click={click} onClick={handleClick}>
             <Image
               //   onClick={() => handleClick()}
               src="/images/head.png"
