@@ -1,5 +1,8 @@
 import React from "react";
+import Particles from "react-particles-js";
 import { styled } from "styled-components";
+
+// particle.js configuration
 
 const Box = styled.div`
   position: absolute;
@@ -11,7 +14,11 @@ const Box = styled.div`
 `;
 
 const ParticleComponent = () => {
-  return <Box></Box>;
+  return (
+    <Box>
+      <Particles></Particles>
+    </Box>
+  );
 };
 
 export default ParticleComponent;

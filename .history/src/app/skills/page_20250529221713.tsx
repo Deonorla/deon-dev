@@ -4,6 +4,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { Developer } from "@/components/Minor/SvgPack/AllSvgs";
 import LogoComponent from "@/components/Minor/Logo";
 import Socials from "@/components/Minor/Socials";
+import ParticleComponent from "@/components/ParticleComponent";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
@@ -126,6 +127,7 @@ const Skills = () => {
       <Box>
         <LogoComponent theme={"brown"} />
         <Socials theme={"brown"} />
+        <ParticleComponent theme={"brown"} />
 
         <Main>
           <Title>
