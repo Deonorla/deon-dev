@@ -8,7 +8,7 @@ interface prop {
 const Logo = styled.h1`
   display: inline-block;
   color: ${(prop) =>
-    prop.color === "brown" ? brownTheme.text : brownTheme.body};
+    prop.color === "brown" ? brownTheme.body : brownTheme.text};
   font-family: "pacifico", cursive;
 
   position: fixed;

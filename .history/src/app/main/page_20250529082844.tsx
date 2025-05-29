@@ -103,7 +103,6 @@ const AnimatedLine = styled(motion.p)`
   text-transform: capitalize;
   letter-spacing: -0.3rem;
   line-height: 0.9;
-  color: #ffffff;
   margin: 0;
   @media (max-width: 1800px) {
     font-size: clamp(2rem, 10vw, 7.1rem);
@@ -280,7 +279,7 @@ const Main = () => {
             <AnimatedLine variants={textVariants}>Developer</AnimatedLine>
           </BottomContainer>
         </Wrapper>
-        {/* <PowerButton /> */}
+        <PowerButton />
         <LogoComponent theme={click ? "brown" : "light"} />
         <Socials theme={click ? "brown" : "light"} />
         <Center $click={click} onClick={handleClick}>

@@ -10,7 +10,6 @@ import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import type { MotionProps } from "framer-motion";
-import Intro from "../intro";
 
 interface Prop {
   $click: boolean;
@@ -103,10 +102,9 @@ const AnimatedLine = styled(motion.p)`
   text-transform: capitalize;
   letter-spacing: -0.3rem;
   line-height: 0.9;
-  color: #ffffff;
   margin: 0;
   @media (max-width: 1800px) {
-    font-size: clamp(2rem, 10vw, 7.1rem);
+    font-size: clamp(2rem, 10vw, 7.5rem);
   }
   @media (max-width: 768px) {
     letter-spacing: -2px;
@@ -196,7 +194,7 @@ const Center = styled.button<Prop>`
 
   & > :last-child {
     display: ${(props) => (props.$click ? "none" : "inline-block")};
-    padding-top: 0.5rem;
+    padding-top: 1rem;
   }
   @media (max-width: 480px) {
     top: ${(props) => (props.$click ? "85%" : "50%")};
@@ -280,7 +278,7 @@ const Main = () => {
             <AnimatedLine variants={textVariants}>Developer</AnimatedLine>
           </BottomContainer>
         </Wrapper>
-        {/* <PowerButton /> */}
+        <PowerButton />
         <LogoComponent theme={click ? "brown" : "light"} />
         <Socials theme={click ? "brown" : "light"} />
         <Center $click={click} onClick={handleClick}>
@@ -314,7 +312,6 @@ const Main = () => {
           </Skills>
         </BottomBar>
       </Container>
-      {click ? <Intro $click={click} /> : null}
     </MainContainer>
   );
 };

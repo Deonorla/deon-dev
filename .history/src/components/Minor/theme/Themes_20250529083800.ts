@@ -15,8 +15,8 @@ export const lightTheme = {
 };
 
 export const brownTheme = {
-  body: "#FFFFFF",
-  text: "#B59F8F",
+  body: "#000000",
+  text: "#FFFFFF",
   fontFamily: "'Source Sans Pro', sans-serif",
   bodyRgba: "0,0,0",
   textRgba: "252, 246, 244",

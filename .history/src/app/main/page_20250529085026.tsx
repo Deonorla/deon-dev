@@ -280,7 +280,7 @@ const Main = () => {
             <AnimatedLine variants={textVariants}>Developer</AnimatedLine>
           </BottomContainer>
         </Wrapper>
-        {/* <PowerButton /> */}
+        <PowerButton />
         <LogoComponent theme={click ? "brown" : "light"} />
         <Socials theme={click ? "brown" : "light"} />
         <Center $click={click} onClick={handleClick}>
