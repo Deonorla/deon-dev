@@ -35,6 +35,7 @@ const Main = styled.div`
   top: 10rem;
 
   font-family: "Ubuntu Mono", monospace;
+  font-style: italic;
 `;
 
 const Skills = () => {
@@ -52,13 +53,13 @@ const Skills = () => {
           interact with blockchain tech, especially on the ICP and NEAR networks
           using Motoko and Rust. <br /> <br /> Over the years, I’ve used a wide
           range of tools — not always by choice, sometimes just because the
-          problem needed it. Tools like Redux, firebase, git, websocket, Sanity,
-          Stripe… they’ve all been part of the journey. <br /> <br /> There are
-          also a few things I’ve picked up in school or early projects that I
-          don’t reach for these days, and that’s okay. I care about good design,
-          clear logic, and shipping things that people can actually use. I like
-          learning when there’s a reason to, and I enjoy working with teams that
-          care about what they’re building.
+          problem needed it. Tools like Redux, firebase, git, framer motion,
+          Sanity, Stripe… they’ve all been part of the journey. <br /> <br />{" "}
+          There are also a few things I’ve picked up in school or early projects
+          that I don’t reach for these days, and that’s okay. I care about good
+          design, clear logic, and shipping things that people can actually use.
+          I like learning when there’s a reason to, and I enjoy working with
+          teams that care about what they’re building.
         </Main>
       </Box>
     </ThemeProvider>

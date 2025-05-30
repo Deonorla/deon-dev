@@ -296,7 +296,7 @@ const Main = () => {
               priority
             />
           </ImageWrapper>
-          <span>View</span>
+          <span>Click here</span>
         </Center>
         <Contact target="_blank" href="mailto:deonoluleye@gmail.com">
           <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
@@ -308,7 +308,7 @@ const Main = () => {
             Blog
           </motion.h2>
         </Blog>
-        <Work href="/projects" $click={click}>
+        <Work href="/work" $click={click}>
           <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             Projects
           </motion.h2>
@@ -319,7 +319,7 @@ const Main = () => {
               About
             </motion.h2>
           </About>
-          <Skills href="/stack">
+          <Skills href="/skills">
             <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               Tech Stack
             </motion.h2>

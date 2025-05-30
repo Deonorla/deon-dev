@@ -118,7 +118,7 @@ const Tooltip = styled.div`
   z-index: 10;
 `;
 
-const Skills = () => {
+const Stacck = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
@@ -130,19 +130,23 @@ const Skills = () => {
         <Main>
           <Title>
             <Developer width={40} height={40} fill="currentColor" />
-            Frontend Developer
+            Tech Stack
           </Title>
           <Description>
-            I specialize in creating dynamic and responsive web applications
-            using modern JavaScript frameworks like React and Next.js. My focus
-            is on building user-friendly interfaces that provide a seamless
-            experience across devices.
+            My main stack revolves around React, TypeScript, and Next Js — with
+            a growing interest in blockchain development like ICP and Near. Over
+            the years, I&apos;ve also worked with a variety of other
+            technologies out of curiosity, project requirements, or both. These
+            are the tools and languages I’m most comfortable with today, but
+            there are plenty I’ve used in academic or experimental settings that
+            I don’t actively work with anymore. I’m always open to learning
+            what’s necessary for the problem at hand.
           </Description>
           <Description>
-            <strong>Skills</strong>
+            <strong>Languages</strong>
             <p>
-              React, Next.js, Flutter, TypeScript, HTML, CSS, Redux, Tailwind,
-              etc.
+              React, Next.js, Flutter, TypeScript, Javascript, HTML, Tailwind
+              CSS, etc.
             </p>
           </Description>
           <Description>
@@ -191,4 +195,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Stack;

@@ -35,6 +35,7 @@ const Main = styled.div`
   top: 10rem;
 
   font-family: "Ubuntu Mono", monospace;
+  font-style: italic;
 `;
 
 const Skills = () => {

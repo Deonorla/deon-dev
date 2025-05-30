@@ -27,7 +27,7 @@ const Main = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: calc(0.6em + 0.6vw);
+  font-size: calc(0.6em + 0.7vw);
   backdrop-filter: blur(4px);
 
   position: absolute;
@@ -35,6 +35,7 @@ const Main = styled.div`
   top: 10rem;
 
   font-family: "Ubuntu Mono", monospace;
+  font-style: italic;
 `;
 
 const Skills = () => {
@@ -52,7 +53,7 @@ const Skills = () => {
           interact with blockchain tech, especially on the ICP and NEAR networks
           using Motoko and Rust. <br /> <br /> Over the years, I’ve used a wide
           range of tools — not always by choice, sometimes just because the
-          problem needed it. Tools like Redux, firebase, git, websocket, Sanity,
+          problem needed it. Tools like Redux, Tailwind, GitHub’s API, Sanity,
           Stripe… they’ve all been part of the journey. <br /> <br /> There are
           also a few things I’ve picked up in school or early projects that I
           don’t reach for these days, and that’s okay. I care about good design,
