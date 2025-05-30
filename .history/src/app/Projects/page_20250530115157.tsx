@@ -91,9 +91,6 @@ const Projects = () => {
     <Main>
       <AnimatePresence>
         <BackgroundImage
-          key={
-            transitionData?.img || currentSlideData?.data?.img || "fallback-key"
-          }
           transitionData={transitionData}
           currentSlideData={currentSlideData}
         />

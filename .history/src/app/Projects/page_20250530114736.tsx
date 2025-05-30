@@ -40,7 +40,7 @@ const ColumnGrid = styled.div`
   height: 100%;
   width: 100%;
   flex-direction: column;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   @media (min-width: 768px) {
     display: grid;
   }
@@ -91,9 +91,6 @@ const Projects = () => {
     <Main>
       <AnimatePresence>
         <BackgroundImage
-          key={
-            transitionData?.img || currentSlideData?.data?.img || "fallback-key"
-          }
           transitionData={transitionData}
           currentSlideData={currentSlideData}
         />

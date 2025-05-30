@@ -35,26 +35,26 @@ const Img2 = styled(motion.img)`
 const BackgroundImage = ({ transitionData, currentSlideData }: Props) => {
   return (
     <>
-      {transitionData?.img && (
-        <Img
-          key={`transition-${transitionData.img}`}
-          layoutId={transitionData.img}
-          alt="Transition Image"
-          transition={{
-            opacity: { ease: "linear" },
-            layout: { duration: 0.6 },
-          }}
-          src={transitionData.img}
-        />
-      )}
-
-      {currentSlideData?.data?.img && (
-        <Img2
-          key={`current-${currentSlideData.data.img}`}
-          alt="Current Image"
-          src={currentSlideData.data.img}
-        />
-      )}
+      {transitionData &&
+        (console.log(" Data:", currentSlideData.data.img),
+        (
+          <Img
+            key={transitionData.img}
+            layoutId={transitionData.img}
+            alt="Transition Image"
+            transition={{
+              opacity: { ease: "linear" },
+              layout: { duration: 0.6 },
+            }}
+            src={transitionData.img}
+          />
+        ))}
+      {/* Background Slide */}
+      <Img2
+        alt="Current Image"
+        key={currentSlideData.data.img + "transition"}
+        src={currentSlideData.data.img}
+      />
     </>
   );
 };

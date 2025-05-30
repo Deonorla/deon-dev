@@ -1,4 +1,3 @@
-"use client";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { IoMdBookmark } from "react-icons/io";

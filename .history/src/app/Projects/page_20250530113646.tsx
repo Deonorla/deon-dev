@@ -40,7 +40,7 @@ const ColumnGrid = styled.div`
   height: 100%;
   width: 100%;
   flex-direction: column;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(10, minmax(0, 1fr));
   @media (min-width: 768px) {
     display: grid;
   }
@@ -65,8 +65,8 @@ const LeftSlider = styled.div`
 `;
 const RightSlider = styled.div`
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 3rem;
+  right: 2rem;
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
@@ -76,7 +76,7 @@ const RightSlider = styled.div`
   padding: 1rem;
   @media (min-width: 768px) {
     justify-content: center;
-    padding: 0.5rem;
+    padding: 2.5rem;
   }
 `;
 
@@ -91,9 +91,6 @@ const Projects = () => {
     <Main>
       <AnimatePresence>
         <BackgroundImage
-          key={
-            transitionData?.img || currentSlideData?.data?.img || "fallback-key"
-          }
           transitionData={transitionData}
           currentSlideData={currentSlideData}
         />
